@@ -3,14 +3,61 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                                    android:layout_height="match_parent">
 
+    <Button
+            android:text="saved"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/savedTransaction"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp" app:layout_constraintHorizontal_bias="1.0"
+            android:layout_marginBottom="16dp"/>
     <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="New Transaction"
             android:ems="10"
-            android:id="@+id/editTextTextPersonName"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.599"/>
+            android:id="@+id/newTransaction"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:hint="New Transaction" android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp" android:layout_marginTop="24dp"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/amount"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newTransaction"
+            android:layout_marginStart="24dp" android:layout_marginEnd="24dp" android:hint="Amount"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintBottom_toTopOf="@+id/savedTransaction"
+            app:layout_constraintVertical_bias="0.159"/>
+    <TextView
+            android:text="view1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/view1"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/savedTransaction"
+            app:layout_constraintTop_toBottomOf="@+id/amount" app:layout_constraintVertical_bias="0.503"/>
+    <TextView
+            android:text="view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/view2"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amount"
+            app:layout_constraintBottom_toTopOf="@+id/savedTransaction" app:layout_constraintVertical_bias="0.567"/>
+    <Spinner
+            android:layout_width="217dp"
+            android:layout_height="39dp" android:id="@+id/categorySpinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/newTransaction"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/amount" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.515"/>
+    <TextView
+            android:text="view3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/view3"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/savedTransaction"
+            app:layout_constraintTop_toBottomOf="@+id/view2" app:layout_constraintVertical_bias="0.051"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
