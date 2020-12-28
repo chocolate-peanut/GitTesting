@@ -30,7 +30,7 @@
             app:layout_constraintTop_toBottomOf="@+id/newTransaction"
             android:layout_marginStart="24dp" android:layout_marginEnd="24dp" android:hint="Amount"
             app:layout_constraintHorizontal_bias="0.0" app:layout_constraintBottom_toTopOf="@+id/savedTransaction"
-            app:layout_constraintVertical_bias="0.159"/>
+            app:layout_constraintVertical_bias="0.141"/>
     <TextView
             android:text="view1"
             android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/newTransaction"
             android:layout_marginStart="24dp"
             app:layout_constraintBottom_toTopOf="@+id/amount" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.515"/>
+            app:layout_constraintVertical_bias="0.487"/>
     <TextView
             android:text="view3"
             android:layout_width="wrap_content"
