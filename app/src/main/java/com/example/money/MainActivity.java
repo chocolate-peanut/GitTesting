@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {// implements AdapterView.O
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //set action for the button on the main page
         FloatingActionButton fab = findViewById(R.id.goToAddTransaction);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,21 +26,6 @@ public class MainActivity extends AppCompatActivity {// implements AdapterView.O
             }
         });
 
-        /*Spinner spinner = findViewById(R.id.categorySpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.category, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);*/
     }
 
-    /*@Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }*/
 }

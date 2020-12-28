@@ -9,45 +9,49 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AddTransaction extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     public static final String SHARED_PREFS = "sharedPrefs";
-    public static final String TEXT = "text";
-    public static final String TEXT2 = "text2";
-    //public static final String TEXT3 = "text3";
+    public static final String TRANSACTIONTEXT = "transactiontext";
+    public static final String AMOUNTTEXT = "amounttext";
+    public static final String CATEGORYTEXT = "categorytext";
 
     private Button savedTransaction;
-    private TextView view1;
-    private TextView view2;
-    //private TextView view3;
     private EditText newTransaction;
     private EditText amount;
-    private String text;
-    private String text2;
-    //private String text3;
+    private Spinner categorySpinner;
+
+    private TextView transactionView;
+    private TextView amountView;
+    private TextView categoryView;
+
+    private String transactionText;
+    private String amountText;
+    private String categoryText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_transaction);
+        setContentView(R.layout.add_transaction); //set another page for add_transaction activity
 
-        view1 = (TextView) findViewById(R.id.view1);
-        view2 = (TextView) findViewById(R.id.view2);
-        //view3 = (TextView) findViewById(R.id.view3);
+        transactionView = (TextView) findViewById(R.id.view1);
+        amountView = (TextView) findViewById(R.id.view2);
+        categoryView = (TextView) findViewById(R.id.view3);
         savedTransaction = (Button) findViewById(R.id.savedTransaction);
         newTransaction = (EditText) findViewById(R.id.newTransaction);
         amount = (EditText) findViewById(R.id.amount);
+        categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
 
-        final Spinner spinner = findViewById(R.id.categorySpinner);
+        //set the spinner for the category options
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.category, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        categorySpinner.setAdapter(adapter);
+        categorySpinner.setOnItemSelectedListener(this);
 
         savedTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 saveData();
-                view1.setText(newTransaction.getText().toString());
-                view2.setText(amount.getText().toString());
-                //view3.setText();
+                transactionView.setText(newTransaction.getText().toString());
+                amountView.setText(amount.getText().toString());
+                categoryView.setText(categorySpinner.getSelectedItem().toString());
             }
         });
 
@@ -57,8 +61,7 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -70,8 +73,9 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putString(TEXT, newTransaction.getText().toString());
-        editor.putString(TEXT2, amount.getText().toString());
+        editor.putString(TRANSACTIONTEXT, newTransaction.getText().toString());
+        editor.putString(AMOUNTTEXT, amount.getText().toString());
+        editor.putString(CATEGORYTEXT, categorySpinner.getSelectedItem().toString());
 
         editor.apply();
 
@@ -80,13 +84,15 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
 
     public void loadData(){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
-        text = sharedPreferences.getString(TEXT, "");
-        text2 = sharedPreferences.getString(TEXT2, "");
+        transactionText = sharedPreferences.getString(TRANSACTIONTEXT, "");
+        amountText = sharedPreferences.getString(AMOUNTTEXT, "");
+        categoryText = sharedPreferences.getString(CATEGORYTEXT, "");
     }
 
     public void updateViews(){
-        view1.setText(text);
-        view2.setText(text2);
+        transactionView.setText(transactionText);
+        amountView.setText(amountText);
+        categoryView.setText(categoryText);
     }
 
 }
