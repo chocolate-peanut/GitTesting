@@ -30,6 +30,8 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_transaction); //set another page for add_transaction activity
+
+        //set action for back function on the toolbar
         getSupportActionBar().setTitle("New Transaction");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
