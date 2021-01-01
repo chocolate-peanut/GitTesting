@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddTransaction"
-        android:parentActivityName=".MainActivity"/> //direct the add_transaction to main page
+        android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

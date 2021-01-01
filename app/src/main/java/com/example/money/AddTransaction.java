@@ -1,19 +1,27 @@
 package com.example.money;
 
+import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
+import android.widget.DatePicker;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
-public class AddTransaction extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import java.text.DateFormat;
+import java.util.Calendar;
+
+public class AddTransaction extends AppCompatActivity implements AdapterView.OnItemSelectedListener, DatePickerDialog.OnDateSetListener {
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String TRANSACTIONTEXT = "transactiontext";
     public static final String AMOUNTTEXT = "amounttext";
     public static final String CATEGORYTEXT = "categorytext";
+    //public static final String DATETEXT = "datetext";
 
     private Button savedTransaction;
+    private Button dateButton;
     private EditText newTransaction;
     private EditText amount;
     private Spinner categorySpinner;
@@ -21,10 +29,12 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
     private TextView transactionView;
     private TextView amountView;
     private TextView categoryView;
+    private TextView dateView;
 
     private String transactionText;
     private String amountText;
     private String categoryText;
+    //private String dateText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +48,10 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
         transactionView = (TextView) findViewById(R.id.view1);
         amountView = (TextView) findViewById(R.id.view2);
         categoryView = (TextView) findViewById(R.id.view3);
+        dateView = (TextView) findViewById(R.id.view4);
+
         savedTransaction = (Button) findViewById(R.id.savedTransaction);
+        dateButton = (Button) findViewById(R.id.dateButton);
         newTransaction = (EditText) findViewById(R.id.newTransaction);
         amount = (EditText) findViewById(R.id.amount);
         categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
@@ -56,6 +69,14 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
                 transactionView.setText(newTransaction.getText().toString());
                 amountView.setText(amount.getText().toString());
                 categoryView.setText(categorySpinner.getSelectedItem().toString());
+            }
+        });
+
+        dateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePicker = new com.example.money.DatePicker();
+                datePicker.show(getSupportFragmentManager(), "date picker");
             }
         });
 
@@ -99,4 +120,14 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
         categoryView.setText(categoryText);
     }
 
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+
+        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
+        dateView.setText(currentDate);
+    }
 }

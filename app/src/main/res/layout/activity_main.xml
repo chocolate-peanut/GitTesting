@@ -19,10 +19,14 @@
             android:id="@+id/goToAddTransaction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_add" app:rippleColor="@android:color/background_light"
+            app:backgroundTint="@android:color/holo_red_dark"
+            android:focusable="true"
+            android:tint="@android:color/white"
             android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_menu_add" app:rippleColor="@android:color/background_light"
-            app:backgroundTint="@android:color/holo_red_dark"/>
+            android:layout_margin="@dimen/fab_margin">
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
