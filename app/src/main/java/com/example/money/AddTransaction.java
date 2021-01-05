@@ -18,7 +18,6 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
     public static final String TRANSACTIONTEXT = "transactiontext";
     public static final String AMOUNTTEXT = "amounttext";
     public static final String CATEGORYTEXT = "categorytext";
-    //public static final String DATETEXT = "datetext";
 
     private Button savedTransaction;
     private Button dateButton;
@@ -34,7 +33,6 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
     private String transactionText;
     private String amountText;
     private String categoryText;
-    //private String dateText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +40,7 @@ public class AddTransaction extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.add_transaction); //set another page for add_transaction activity
 
         //set action for back function on the toolbar
-        getSupportActionBar().setTitle("New Transaction");
+        getSupportActionBar().setTitle("New Expense");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         transactionView = (TextView) findViewById(R.id.view1);

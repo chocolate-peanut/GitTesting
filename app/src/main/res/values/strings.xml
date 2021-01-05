@@ -20,6 +20,17 @@
         <item>Pet</item>
         <item>Travel</item>
         <item>Education</item>
-        <item>Other</item>
+        <item>Others</item>
     </string-array>
+
+    <string-array name="category2">
+        <item>Salary</item>
+        <item>Awards</item>
+        <item>Investments</item>
+        <item>Dividends</item>
+        <item>Refunds</item>
+        <item>Lottery</item>
+        <item>Others</item>
+    </string-array>
+
 </resources>

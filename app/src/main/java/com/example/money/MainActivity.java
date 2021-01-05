@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.*;
 
 public class MainActivity extends AppCompatActivity {// implements AdapterView.OnItemSelectedListener {
 
@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {// implements AdapterView.O
         setSupportActionBar(toolbar);
 
         //set action for the button on the main page
-        FloatingActionButton fab = findViewById(R.id.goToAddTransaction);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab1 = findViewById(R.id.toExpense);
+        fab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AddTransaction.class);
@@ -26,6 +26,14 @@ public class MainActivity extends AppCompatActivity {// implements AdapterView.O
             }
         });
 
+        FloatingActionButton fab2 = findViewById(R.id.toIncome);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AddIncome.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
