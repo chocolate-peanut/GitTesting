@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/newIncome"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="24dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"
+            app:layout_constraintVertical_bias="0.009" android:hint="New Transaction"
+            app:layout_constraintHorizontal_bias="1.0"/>
+    <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/amount2"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="24dp" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"
+            app:layout_constraintVertical_bias="0.208" android:hint="Amount"
+            app:layout_constraintHorizontal_bias="1.0"/>
+    <Spinner
+            android:layout_width="218dp"
+            android:layout_height="43dp" android:id="@+id/categorySpinner2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toTopOf="@+id/amount2"
+            app:layout_constraintTop_toBottomOf="@+id/newIncome" app:layout_constraintHorizontal_bias="0.134"
+            app:layout_constraintVertical_bias="0.477"/>
+    <Button
+            android:text="Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/dateButton2"
+            app:layout_constraintStart_toEndOf="@+id/categorySpinner2" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="23dp" app:layout_constraintBottom_toTopOf="@+id/amount2"
+            app:layout_constraintTop_toBottomOf="@+id/newIncome" app:layout_constraintHorizontal_bias="0.607"
+            app:layout_constraintVertical_bias="1.0"/>
+    <Button
+            android:text="saved"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/savedIncome"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.498"
+            android:layout_marginStart="24dp" android:layout_marginBottom="24dp" android:layout_marginEnd="24dp"/>
+    <TextView
+            android:text="date2"
+            android:layout_width="207dp"
+            android:layout_height="18dp" android:id="@+id/view8"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amount2" app:layout_constraintBottom_toTopOf="@+id/savedIncome"
+            android:layout_marginStart="100dp" android:layout_marginEnd="100dp"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.394"/>
+    <TextView
+            android:text="transactionView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/view5"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view8" android:layout_marginTop="39dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp" app:layout_constraintHorizontal_bias="0.0"
+    />
+    <TextView
+            android:text="categoryView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/view7"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view5"
+            app:layout_constraintBottom_toTopOf="@+id/savedIncome" android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.289"/>
+    <TextView
+            android:text="acountView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/view6"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view5" app:layout_constraintBottom_toTopOf="@+id/view7"
+            android:layout_marginStart="100dp" android:layout_marginEnd="100dp"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintVertical_bias="0.55"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
