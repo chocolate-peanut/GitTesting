@@ -1,4 +1,4 @@
-package com.example.money;
+package com.example.moneymanager;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;

@@ -1,39 +1,82 @@
-package com.example.money;
+package com.example.moneymanager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import com.getbase.floatingactionbutton.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {// implements AdapterView.OnItemSelectedListener {
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+public class MainActivity extends AppCompatActivity {
+
+    private EditText email;
+    private EditText password;
+    private Button btnSignIn;
+    private FirebaseAuth firebase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        //set action for the button on the main page
-        FloatingActionButton fab1 = findViewById(R.id.toExpense);
-        fab1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddTransaction.class);
-                startActivity(intent);
-            }
-        });
+        firebase = FirebaseAuth.getInstance(); //point to rootNode
+        email = (EditText) findViewById(R.id.email);
+        password = (EditText) findViewById(R.id.password);
+        btnSignIn = (Button) findViewById(R.id.btnSignIn);
 
-        FloatingActionButton fab2 = findViewById(R.id.toIncome);
-        fab2.setOnClickListener(new View.OnClickListener() {
+        //existing users don't have to sign in again
+        if(firebase.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), HomePage.class));
+        }
+
+        //Sign In Activity
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddIncome.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                String em = email.getText().toString().trim();
+                String pw = password.getText().toString().trim();
+
+                //input validation
+                if(TextUtils.isEmpty(em)) {
+                    email.setError("Please enter Email");
+                    return;
+                }
+                if(TextUtils.isEmpty(pw)) {
+                    password.setError("Please enter Password");
+                    return;
+                }
+
+                //create new user
+           /*     firebase.createUserWithEmailAndPassword(em,pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    }
+                }); */
+
+                firebase.signInWithEmailAndPassword(em,pw).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(),"Sign In Successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"Sign In Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
     }
-
 }
